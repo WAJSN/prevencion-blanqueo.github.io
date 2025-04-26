@@ -1,0 +1,790 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>¡ALERTA! Prevenir el Blanqueo de Capitales es Tarea de Todos</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --azul-oscuro: #0a2463;
+            --gris-claro: #eaeaea;
+            --naranja: #ff6b35;
+            --blanco: #ffffff;
+        }
+        
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        
+        body {
+            font-family: 'Open Sans', sans-serif;
+            background-color: var(--gris-claro);
+            color: #333;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        .infografia {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: var(--blanco);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            position: relative;
+            animation: fadeIn 1s ease;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        section {
+            padding: 30px;
+            border-bottom: 1px solid var(--gris-claro);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        h1, h2, h3 {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--azul-oscuro);
+        }
+        
+        h1 {
+            font-size: 2.2rem;
+            text-align: center;
+            margin-bottom: 10px;
+            animation: slideInTitle 1.2s ease;
+        }
+        
+        @keyframes slideInTitle {
+            from { opacity: 0; transform: translateX(-50px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+        
+        h2 {
+            font-size: 1.6rem;
+            margin-bottom: 20px;
+            position: relative;
+            padding-left: 20px;
+        }
+        
+        h2:before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 10px;
+            height: 10px;
+            background-color: var(--naranja);
+            border-radius: 50%;
+        }
+        
+        h3 {
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+        }
+        
+        p {
+            margin-bottom: 15px;
+        }
+
+        .subtitulo {
+            text-align: center;
+            font-size: 1.2rem;
+            color: var(--azul-oscuro);
+            margin-bottom: 30px;
+        }
+        
+        .header {
+            background-color: var(--azul-oscuro);
+            color: var(--blanco);
+            padding: 50px 30px;
+            text-align: center;
+        }
+        
+        .header h1 {
+            color: var(--blanco);
+        }
+        
+        .header p {
+            color: var(--gris-claro);
+        }
+        
+        .icono {
+            width: 60px;
+            height: 60px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0 auto 20px;
+            background-color: var(--azul-oscuro);
+            color: var(--blanco);
+            border-radius: 50%;
+            font-size: 30px;
+            transition: all 0.3s ease;
+        }
+        
+        .etapas {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            gap: 20px;
+            margin-top: 20px;
+        }
+        
+        .etapa {
+            flex: 1;
+            min-width: 200px;
+            background-color: var(--gris-claro);
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .etapa:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .etapa h3 {
+            color: var(--azul-oscuro);
+        }
+        
+        .consecuencias, .prevencion, .leyes {
+            margin-top: 20px;
+        }
+        
+        .punto {
+            padding: 10px;
+            margin-bottom: 10px;
+            border-left: 3px solid var(--naranja);
+            background-color: rgba(234, 234, 234, 0.3);
+            transition: background-color 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .punto:hover {
+            background-color: var(--gris-claro);
+        }
+        
+        .punto-info {
+            display: none;
+            padding: 10px;
+            background-color: var(--blanco);
+            border-left: 3px solid var(--azul-oscuro);
+            margin-top: 5px;
+        }
+        
+        .ley {
+            margin-bottom: 10px;
+            padding: 10px;
+            border-radius: 4px;
+            background-color: rgba(234, 234, 234, 0.3);
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        
+        .ley:hover {
+            background-color: var(--gris-claro);
+        }
+        
+        .ley-info {
+            display: none;
+            padding: 10px;
+            background-color: var(--blanco);
+            margin-top: 5px;
+        }
+        
+        .footer {
+            background-color: var(--azul-oscuro);
+            color: var(--blanco);
+            text-align: center;
+            padding: 30px;
+        }
+        
+        .footer img {
+            max-width: 150px;
+            margin-bottom: 20px;
+        }
+        
+        .boton-accion {
+            display: inline-block;
+            background-color: var(--naranja);
+            color: var(--blanco);
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            margin-top: 20px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .boton-accion:hover {
+            background-color: #e55a2b;
+            transform: scale(1.05);
+        }
+        
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+        }
+        
+        .modal-content {
+            background-color: var(--blanco);
+            margin: 10% auto;
+            padding: 20px;
+            width: 80%;
+            max-width: 600px;
+            border-radius: 8px;
+            position: relative;
+        }
+        
+        .close {
+            position: absolute;
+            right: 20px;
+            top: 10px;
+            font-size: 30px;
+            cursor: pointer;
+        }
+        
+        .recursos-adicionales {
+            margin-top: 20px;
+            text-align: center;
+        }
+        
+        /* Banner de descarga PDF */
+        .pdf-banner {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background-color: var(--azul-oscuro);
+            color: var(--blanco);
+            padding: 15px;
+            text-align: center;
+            z-index: 999;
+            box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .pdf-banner p {
+            margin: 0;
+            font-weight: bold;
+        }
+        
+        .pdf-banner .boton-pdf {
+            display: inline-block;
+            background-color: var(--naranja);
+            color: var(--blanco);
+            padding: 8px 15px;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: bold;
+            margin-left: 15px;
+            transition: all 0.3s ease;
+        }
+        
+        .pdf-banner .boton-pdf:hover {
+            background-color: #e55a2b;
+            transform: scale(1.05);
+        }
+        
+        .pdf-banner .close-banner {
+            position: absolute;
+            right: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 20px;
+            cursor: pointer;
+        }
+        
+        /* Formulario de registro */
+        .registro-seccion {
+            background-color: #f5f7fa;
+            padding: 30px;
+            border-radius: 8px;
+            margin-top: 30px;
+            text-align: center;
+        }
+        
+        .registro-seccion h2 {
+            margin-bottom: 20px;
+        }
+        
+        .registro-seccion p {
+            margin-bottom: 20px;
+        }
+        
+        .certificado-container {
+            display: none;
+            margin-top: 30px;
+            padding: 20px;
+            border: 2px solid var(--azul-oscuro);
+            border-radius: 8px;
+            text-align: center;
+            background-color: #f9f9f9;
+        }
+        
+        .certificado-container h3 {
+            color: var(--azul-oscuro);
+            margin-bottom: 15px;
+        }
+        
+        .certificado-container p {
+            margin-bottom: 10px;
+        }
+        
+        .certificado-container .sello {
+            width: 100px;
+            height: 100px;
+            margin: 20px auto;
+            background-color: var(--azul-oscuro);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: var(--blanco);
+            font-weight: bold;
+            font-size: 16px;
+        }
+        
+        @media (max-width: 768px) {
+            .etapas {
+                flex-direction: column;
+            }
+            
+            h1 {
+                font-size: 1.8rem;
+            }
+            
+            h2 {
+                font-size: 1.4rem;
+            }
+            
+            .modal-content {
+                width: 95%;
+                margin: 5% auto;
+            }
+            
+            .pdf-banner {
+                padding: 10px;
+            }
+            
+            .pdf-banner p {
+                font-size: 0.9rem;
+            }
+            
+            .pdf-banner .boton-pdf {
+                margin-top: 5px;
+                margin-left: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Banner de descarga PDF -->
+    <div class="pdf-banner" id="pdf-banner">
+        <p>¿Prefieres una versión para llevar? Descarga nuestra infografía en PDF</p>
+        <a href="#" class="boton-pdf" id="descarga-pdf">Descargar PDF</a>
+        <span class="close-banner" id="cerrar-banner">&times;</span>
+    </div>
+
+    <div class="infografia">
+        <!-- 1. Encabezado -->
+        <section class="header">
+            <h1>¡ALERTA! Prevenir el Blanqueo de Capitales es Tarea de Todos</h1>
+            <p class="subtitulo">Campaña de Prevención y Concientización (1er Semestre 2025)</p>
+            <div class="icono">
+                <img src="/api/placeholder/48/48" alt="Ícono de alerta" />
+            </div>
+        </section>
+        
+        <!-- 2. ¿Qué es el Blanqueo de Capitales? -->
+        <section>
+            <h2>¿Qué es el Blanqueo de Capitales?</h2>
+            <div class="icono">
+                <img src="/api/placeholder/48/48" alt="Ícono de dinero" />
+            </div>
+            <p>El blanqueo de capitales es un proceso que consiste en <strong>disfrazar el origen del dinero obtenido ilegalmente para que parezca legítimo</strong>. Los delincuentes buscan que el dinero obtenido por medios ilícitos parezca que procede de una fuente legítima.</p>
+            <p class="punto" id="info-global">Es un problema mundial y los delincuentes utilizan métodos sofisticados para ocultar sus actividades.</p>
+            <div class="punto-info" id="info-global-detail">
+                <p>Se calcula que el blanqueo de dinero representa entre 2% y 5% del PIB mundial cada año, aproximadamente entre 800 billones y 2 trillones de dólares. Afecta a todos los mercados, sectores, industrias, y debilita la integridad del sistema financiero global.</p>
+            </div>
+        </section>
+        
+        <!-- 3. Las 3 Etapas del Blanqueo -->
+        <section>
+            <h2>¿Cómo Funciona?</h2>
+            <div class="etapas">
+                <div class="etapa" id="etapa1">
+                    <div class="icono">
+                        <img src="/api/placeholder/48/48" alt="Ícono de colocación" />
+                    </div>
+                    <h3>Etapa 1: Colocación</h3>
+                    <p>Introducir el producto del delito en el sistema financiero</p>
+                </div>
+                
+                <div class="etapa" id="etapa2">
+                    <div class="icono">
+                        <img src="/api/placeholder/48/48" alt="Ícono de estratificación" />
+                    </div>
+                    <h3>Etapa 2: Estratificación</h3>
+                    <p>Realizar complejas transacciones financieras para ocultar el origen del dinero</p>
+                </div>
+                
+                <div class="etapa" id="etapa3">
+                    <div class="icono">
+                        <img src="/api/placeholder/48/48" alt="Ícono de integración" />
+                    </div>
+                    <h3>Etapa 3: Integración</h3>
+                    <p>Uso de negocios legítimos para convertir el producto del delito en activos aparentemente legales</p>
+                </div>
+            </div>
+        </section>
+        
+        <!-- 4. ¿Por qué es Peligroso? (Consecuencias) -->
+        <section>
+            <h2>¿Cuáles son las Consecuencias?</h2>
+            <div class="consecuencias">
+                <div class="punto" id="consecuencia1">
+                    <p>Graves consecuencias para la economía y la sociedad en general.</p>
+                </div>
+                <div class="punto-info" id="consecuencia1-info">
+                    <p>Socava la integridad del sistema financiero y reduce la confianza pública en el sistema financiero. Esto lleva a reducir el crecimiento económico e incrementar el costo de los negocios en general.</p>
+                </div>
+                
+                <div class="punto" id="consecuencia2">
+                    <p>Financiamiento de actividades delictivas.</p>
+                </div>
+                <div class="punto-info" id="consecuencia2-info">
+                    <p>El dinero lavado puede utilizarse para financiar actividades terroristas y otras acciones criminales, contribuyendo a la inseguridad nacional e internacional.</p>
+                </div>
+                
+                <div class="punto" id="consecuencia3">
+                    <p>Alto impacto en la sociedad.</p>
+                </div>
+                <div class="punto-info" id="consecuencia3-info">
+                    <p>Permite que los delincuentes operen con impunidad, expandiendo sus actividades ilícitas y reforzando su influencia en sectores económicos y redes de corrupción. También puede conducir a la erosión de la confianza pública en las instituciones financieras.</p>
+                </div>
+            </div>
+        </section>
+        
+        <!-- 5. ¿Cómo Prevenirlo? (Tu Rol) -->
+        <section>
+            <h2>¿Cómo Prevenirlo?</h2>
+            <div class="prevencion">
+                <div class="punto" id="prevencion1">
+                    <p>Diligencia debida con la clientela</p>
+                </div>
+                <div class="punto-info" id="prevencion1-info">
+                    <p>Conoce bien a tus clientes. Verifica su identidad, comprende la naturaleza de sus actividades y el propósito de la relación comercial. Mantén información actualizada y monitorea las transacciones que realizan.</p>
+                </div>
+                
+                <div class="punto" id="prevencion2">
+                    <p>Supervisión de las transacciones y los programas informáticos contra el blanqueo</p>
+                </div>
+                <div class="punto-info" id="prevencion2-info">
+                    <p>Implementa sistemas que puedan detectar patrones inusuales o sospechosos. Estos sistemas deben ser actualizados regularmente para adaptarse a nuevas técnicas de blanqueo.</p>
+                </div>
+                
+                <div class="punto" id="prevencion3">
+                    <p>Sistemas y controles adecuados para detectar y notificar actividades sospechosas</p>
+                </div>
+                <div class="punto-info" id="prevencion3-info">
+                    <p>Establece procedimientos claros para reportar actividades sospechosas a las autoridades competentes. Asegúrate de que todos los empleados estén capacitados para identificar señales de alerta y sepan cómo proceder al detectarlas.</p>
+                </div>
+            </div>
+        </section>
+        
+        <!-- 6. Marco Legal (Venezuela) -->
+        <section>
+            <h2>¿Cuáles son las Leyes en Contra?</h2>
+            <div class="leyes">
+                <div class="ley" id="ley1">
+                    <p>Ley de Control del Blanqueo de Capitales de 1986</p>
+                </div>
+                <div class="ley-info" id="ley1-info">
+                    <p>Una de las primeras legislaciones internacionales que abordó directamente el problema del blanqueo de capitales, estableciendo sanciones penales para quienes participaran en estas actividades.</p>
+                </div>
+                
+                <div class="ley" id="ley2">
+                    <p>USA PATRIOT de 2001</p>
+                </div>
+                <div class="ley-info" id="ley2-info">
+                    <p>Ley promulgada tras los atentados del 11 de septiembre que fortaleció significativamente las medidas contra el blanqueo de capitales, especialmente en lo relacionado con el financiamiento del terrorismo.</p>
+                </div>
+                
+                <div class="ley" id="ley3">
+                    <p>Directiva de la Unión Europea sobre blanqueo de capitales de 2005</p>
+                </div>
+                <div class="ley-info" id="ley3-info">
+                    <p>Estableció un marco regulatorio común para los países miembros de la UE, incluyendo medidas preventivas y requisitos de transparencia para las entidades financieras.</p>
+                </div>
+                
+                <div class="ley" id="ley4">
+                    <p>En Venezuela, la Ley Orgánica Contra la Delincuencia Organizada y Financiamiento al Terrorismo (LOCDOFT)</p>
+                </div>
+                <div class="ley-info" id="ley4-info">
+                    <p>Esta ley establece mecanismos de prevención, control, vigilancia, supervisión y fiscalización para detectar y sancionar los delitos de delincuencia organizada, incluyendo el blanqueo de capitales. Exige a las instituciones financieras que identifiquen y notifiquen las actividades sospechosas y que apliquen medidas de debida diligencia con el cliente para prevenir el blanqueo de capitales. También permite la localización e identificación de bienes, activos y derechos relacionados con la actividad ilícita.</p>
+                </div>
+            </div>
+            <div class="boton-accion" id="modal-locdoft">Ver más sobre LOCDOFT</div>
+        </section>
+        
+        <!-- 7. Llamada a la Acción/Cierre -->
+        <section>
+            <h2>Conclusión</h2>
+            <p>El blanqueo de capitales es un problema mundial con graves consecuencias para la economía y la sociedad. Su mitigación depende tanto de los gobiernos y las empresas como también de cada individuo que forma parte del sistema financiero.</p>
+            <p>Las instituciones financieras, los reguladores y el público deben colaborar para reforzar la cooperación internacional y el desarrollo de políticas que permitan desarticular la detección y el enjuiciamiento de delincuentes.</p>
+            <p>Tu compromiso protege nuestra integridad. ¡Reporta cualquier actividad sospechosa!</p>
+            <div class="boton-accion" id="modal-contacto">Información para reportes</div>
+        </section>
+        
+        <!-- Sección de Registro con Google Forms -->
+        <section class="registro-seccion">
+            <h2>Certifica tu Participación</h2>
+            <p>Por favor completa el siguiente formulario para registrar que has completado esta capacitación y recibir tu certificado de participación.</p>
+            
+            <!-- Insertando el iframe de Google Forms -->
+            <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSeI33qdumoe9-k0_vh14TumdMU88tRfPAgIkl5jvaj_JLWLFg/viewform?embedded=true" width="640" height="3671" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+            
+            <div id="certificado" class="certificado-container">
+                <h3>Certificado de Participación</h3>
+                <p>Se certifica que:</p>
+                <p><strong><span id="nombre-participante">Nombre del Participante</span></strong></p>
+                <p>Ha completado satisfactoriamente la capacitación sobre:</p>
+                <p><strong>Prevención de Blanqueo de Capitales</strong></p>
+                <p>Fecha: <span id="fecha-certificado"></span></p>
+                
+                <div class="sello">
+                    VEPICA<br>SUNAVAL
+                </div>
+                
+                <p style="font-size: 0.8rem; margin-top: 20px;">Este certificado es válido como evidencia de entrenamiento ante SUNAVAL.</p>
+                
+                <div class="boton-accion" id="btn-descargar-certificado">Descargar Certificado</div>
+            </div>
+        </section>
+        
+        <!-- 8. Pie de Página -->
+        <section class="footer">
+            <img src="/api/placeholder/150/60" alt="Logo VEPICA" />
+            <p>Campaña 1er Semestre 2025 | Cumplimiento SUNAVAL</p>
+            <div class="recursos-adicionales">
+                <a href="#" class="boton-accion" id="btn-recursos">Recursos Adicionales</a>
+                <a href="#" class="boton-accion" id="btn-pdf">Descargar PDF</a>
+            </div>
+        </section>
+    </div>
+    
+    <!-- Modal LOCDOFT -->
+    <div id="locdoft-modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Ley Orgánica Contra la Delincuencia Organizada y Financiamiento al Terrorismo</h2>
+            <p>La LOCDOFT es el principal instrumento legal en Venezuela para combatir el blanqueo de capitales y el financiamiento al terrorismo. Establece:</p>
+            <ul style="padding-left: 20px; margin-bottom: 20px;">
+                <li>Medidas preventivas para las instituciones financieras</li>
+                <li>Requisitos de debida diligencia con respecto al cliente</li>
+                <li>Obligación de reportar actividades sospechosas</li>
+                <li>Coordinación entre organismos nacionales e internacionales</li>
+                <li>Sanciones penales significativas para los infractores</li>
+            </ul>
+            <p>Esta ley se alinea con los estándares internacionales establecidos por el Grupo de Acción Financiera Internacional (GAFI) y demuestra el compromiso de Venezuela en la lucha contra estos delitos.</p>
+        </div>
+    </div>
+    
+    <!-- Modal Contacto -->
+    <div id="contacto-modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Información para Reportar Actividades Sospechosas</h2>
+            <p>Si detectas alguna actividad que consideres sospechosa de blanqueo de capitales, debes:</p>
+            <ol style="padding-left: 20px; margin-bottom: 20px;">
+                <li>Informar inmediatamente a tu supervisor directo</li>
+                <li>Contactar al Oficial de Cumplimiento de la empresa</li>
+                <li>Documentar la actividad sospechosa con todos los detalles posibles</li>
+                <li>No alertar al cliente o persona involucrada sobre tus sospechas</li>
+            </ol>
+            <p><strong>Contacto del Oficial de Cumplimiento:</strong></p>
+            <p>compliance@empresa.com.ve | Ext. 1234</p>
+            <p><strong>Línea de denuncia anónima:</strong></p>
+            <p>0800-DENUNCIA (0800-3368-6242)</p>
+        </div>
+    </div>
+    
+    <!-- Modal Recursos -->
+    <div id="recursos-modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Recursos Adicionales</h2>
+            <h3>Documentos de Referencia</h3>
+            <ul style="padding-left: 20px; margin-bottom: 20px;">
+                <li>Manual de Prevención y Control del Blanqueo de Capitales</li>
+                <li>Guía de Señales de Alerta</li>
+                <li>Procedimientos para la Debida Diligencia del Cliente</li>
+            </ul>
+            <h3>Capacitación en Línea</h3>
+            <ul style="padding-left: 20px; margin-bottom: 20px;">
+                <li>Curso básico de prevención del blanqueo de capitales</li>
+                <li>Taller de detección de operaciones sospechosas</li>
+                <li>Seminario virtual sobre marco legal actualizado</li>
+            </ul>
+            <p>Para acceder a estos recursos, comunícate con el Departamento de Cumplimiento o visita el portal interno de la empresa.</p>
+        </div>
+    </div>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Funcionalidad para puntos informativos
+            document.querySelectorAll('.punto').forEach(punto => {
+                punto.addEventListener('click', function() {
+                    const infoId = this.id + '-info';
+                    const infoElement = document.getElementById(infoId);
+                    if (infoElement) {
+                        if (infoElement.style.display === 'block') {
+                            infoElement.style.display = 'none';
+                        } else {
+                            document.querySelectorAll('.punto-info').forEach(el => {
+                                el.style.display = 'none';
+                            });
+                            infoElement.style.display = 'block';
+                        }
+                    }
+                });
+            });
+            
+            // Funcionalidad para información adicional en "Qué es"
+            document.getElementById('info-global').addEventListener('click', function() {
+                const infoDetail = document.getElementById('info-global-detail');
+                if (infoDetail.style.display === 'block') {
+                    infoDetail.style.display = 'none';
+                } else {
+                    infoDetail.style.display = 'block';
+                }
+            });
+            
+            // Funcionalidad para etapas del blanqueo
+            document.querySelectorAll('.etapa').forEach(etapa => {
+                etapa.addEventListener('mouseover', function() {
+                    this.style.transform = 'translateY(-10px)';
+                });
+                
+                etapa.addEventListener('mouseout', function() {
+                    this.style.transform = 'translateY(0)';
+                });
+            });
+            
+            // Funcionalidad para leyes
+            document.querySelectorAll('.ley').forEach(ley => {
+                ley.addEventListener('click', function() {
+                    const infoId = this.id + '-info';
+                    const infoElement = document.getElementById(infoId);
+                    if (infoElement) {
+                        if (infoElement.style.display === 'block') {
+                            infoElement.style.display = 'none';
+                        } else {
+                            document.querySelectorAll('.ley-info').forEach(el => {
+                                el.style.display = 'none';
+                            });
+                            infoElement.style.display = 'block';
+                        }
+                    }
+                });
+            });
+            
+            // Funcionalidad de modales
+            const modals = {
+                'modal-locdoft': 'locdoft-modal',
+                'modal-contacto': 'contacto-modal',
+                'btn-recursos': 'recursos-modal'
+            };
+            
+            Object.keys(modals).forEach(trigger => {
+                document.getElementById(trigger).addEventListener('click', function() {
+                    document.getElementById(modals[trigger]).style.display = 'block';
+                });
+            });
+            
+            document.querySelectorAll('.close').forEach(close => {
+                close.addEventListener('click', function() {
+                    this.parentElement.parentElement.style.display = 'none';
+                });
+            });
+            
+            window.addEventListener('click', function(event) {
+                document.querySelectorAll('.modal').forEach(modal => {
+                    if (event.target === modal) {
+                        modal.style.display = 'none';
+                    }
+                });
+            });
+            
+            // Manejador para el botón de PDF
+            const descargarPDF = function(e) {
+                e.preventDefault();
+                const pdfUrl = 'https://drive.google.com/file/d/1-ejemplo-pdf-url/view?usp=sharing';
+                window.open(pdfUrl, '_blank');
+            };
+            
+            document.getElementById('btn-pdf').addEventListener('click', descargarPDF);
+            document.getElementById('descarga-pdf').addEventListener('click', descargarPDF);
+            
+            // Cerrar banner
+            document.getElementById('cerrar-banner').addEventListener('click', function() {
+                document.getElementById('pdf-banner').style.display = 'none';
+            });
+            
+            // Fecha para el certificado
+            const fechaActual = new Date();
+            document.getElementById('fecha-certificado').textContent = `${fechaActual.getDate()}/${fechaActual.getMonth() + 1}/${fechaActual.getFullYear()}`;
+            
+            // Procesar respuestas del formulario (esto se activaría después del envío del formulario)
+            // En un escenario real, esto debe conectarse con la API de Google Forms para recibir la confirmación
+            // del envío. Esta es una versión simplificada para demostración.
+            window.addEventListener('message', function(event) {
+                // Verifica si el mensaje proviene del iframe de Google Forms
+                if (event.origin.includes('google.com')) {
+                    // Verifica si el formulario ha sido enviado
+                    if (event.data.includes('formSubmitted')) {
+                        // Extraer el nombre del participante (en un caso real vendría del formulario)
+                        const urlParams = new URLSearchParams(window.location.search);
+                        let nombre = urlParams.get('nombre');
+                        
+                        if (!nombre) {
+                            // Si no hay nombre en la URL, podríamos usar un valor por defecto o 
+                            // podríamos pedir al usuario que ingrese su nombre
+                            nombre = sessionStorage.getItem('nombre_participante') || 'Participante';
+                        }
+                        
+                        // Mostrar el certificado
+                        document.getElementById('nombre-participante').textContent = nombre;
+                        document.getElementById('certificado').style.display = 'block';
+                        
+                        // Desplazarse al certificado
+                        document.getElementById('certificado').scrollIntoView({
+                            behavior: 'smooth'
+                        });
+                    }
+                }
+            });
+            
+            // Para propósitos de demostración, permitir que se muestre el certificado al hacer clic 
+            // en el botón de envío del formulario (no funcionará con el iframe real de Google Forms)
+            document.getElementById('btn-descargar-certificado').addEventListener('click', function() {
+                alert('En una implementación real, aquí se generaría un PDF del certificado para descargar.');
+            });
+        });
